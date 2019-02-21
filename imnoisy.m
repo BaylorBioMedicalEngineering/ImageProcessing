@@ -4,7 +4,7 @@ function [In,Ir,Ig,Ie,Iu,Isp]=imnoisy(I);
 m=0.05;
 s=.1;
 n_norm = random('Normal',m,s,r,c);
-In=abs(I+n_norm);
+In=I+n_norm;
 
 b=.05;
 n_rayl = random('Rayleigh',b,r,c);
