@@ -1,0 +1,15 @@
+m=2;n=2;
+deltat=.1/(2*pi);
+t=1:deltat:4*pi;
+x=sin(t);
+y=zeros(size(t));
+figure;
+subplot(m,n,1),plot(t,x);
+theta=pi/6;
+x2=x.*cos(theta)-y.*sin(theta);
+y2=x.*sin(theta)+y.*cos(theta);
+subplot(m,n,2),plot3(x2,y2,t);
+[u,s,v]=svd([x2' y2']);
+Score=-u*s;
+subplot(m,n,3),plot(t,Score(:,1)');
+subplot(m,n,4),plot(t,Score(:,2)');
